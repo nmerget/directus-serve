@@ -27,13 +27,13 @@ export const uploadOptions: ProgramOptionsType[] = [
     short: "u",
     name: "directusUrl",
     description: "URL of Directus URL",
-    required: true
+    required: true,
   },
   {
     short: "t",
     name: "directusToken",
     description: "Token of Directus user with upload permissions.",
-    required: false
+    required: false,
   },
   {
     short: "f",

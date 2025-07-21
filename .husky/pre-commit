@@ -1,2 +1,3 @@
 pnpm -r generate:api-docs
 pnpm -r build
+lint-staged --config lint-staged.config.js

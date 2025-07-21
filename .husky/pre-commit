@@ -1,0 +1,4 @@
+pnpm -r generate:api-docs
+pnpm -r validate
+pnpm -r build
+pnpm -r test

@@ -1,0 +1,55 @@
+name: Default pipeline
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "main"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+env:
+  CI: true
+
+jobs:
+  version:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⏬ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🆙 Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: 🆙 Setup pnpm config
+        shell: bash
+        run: pnpm config set store-dir .pnpm-store
+
+      - name: ⏬ Install pnpm
+        shell: bash
+        run: pnpm install
+
+      - name: 🔨 Build all
+        run: pnpm ci:build
+
+      - name: 👨‍🔬👩‍🔬 Test repo
+        run: pnpm ci:test
+
+      - name: 👌 Validate
+        run: pnpm ci:validate
+
+#      - name: 🚢 Create and publish versions
+#        uses: changesets/action@v1
+#        if: ${{ github.event.pull_request != null }}
+#        with:
+#          commit: "chore: update versions"
+#          title: "chore: update versions"
+#          publish: pnpm ci:publish
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

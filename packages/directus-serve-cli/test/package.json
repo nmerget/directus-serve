@@ -1,0 +1,9 @@
+{
+  "name": "test",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "cli:help": "tsx ../src/cli.ts --help",
+    "upload:help": "tsx ../src/cli.ts upload --help"
+  }
+}

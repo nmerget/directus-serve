@@ -1,0 +1,24 @@
+{
+  "name": "directus-serve",
+  "private": true,
+  "description": "Monorepo for directus-extension-serve.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "changeset": "changeset",
+    "ci:validate": "pnpm -r validate",
+    "ci:test": "pnpm -r test",
+    "ci:build": "pnpm -r build",
+    "ci:publish": "pnpm publish -r",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.5",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}

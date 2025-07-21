@@ -32,12 +32,11 @@ export const dryRunOption: ProgramOptionsType = {
   defaultValue: false,
 };
 
-
 export const srcOption: ProgramOptionsType = {
   short: "s",
   name: "src",
   description: "Source folder with all files",
-  required: true
+  required: true,
 };
 
 export const ignoreOption: ProgramOptionsType = {

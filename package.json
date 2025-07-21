@@ -6,15 +6,17 @@
   "license": "MIT",
   "scripts": {
     "changeset": "changeset",
-    "ci:validate": "pnpm -r validate",
-    "ci:test": "pnpm -r test",
     "ci:build": "pnpm -r build",
     "ci:publish": "pnpm publish -r",
+    "ci:test": "pnpm -r test",
+    "ci:validate": "pnpm -r validate",
+    "format": "prettier --write .",
     "prepare": "husky"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.5",
     "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.6.2"
   },
   "publishConfig": {

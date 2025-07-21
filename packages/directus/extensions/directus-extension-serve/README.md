@@ -42,7 +42,7 @@ For example, if you upload a file with the name `index.css`,
 it wouldn't matter if your `index.html` references `index.css` or `/assets/index.css`.
 It will just check the file name.
 
-To change this behavior, you can use the ``location`` property in the `directus_files` collection,
+To change this behavior, you can use the `location` property in the `directus_files` collection,
 to specify different paths for your files, if they have the same name.
 
 Check out the [Configuration](#configuration) section below for more details.
@@ -58,9 +58,9 @@ You can use the `upload` command to upload your files to the Directus instance.
 npx directus-serve-cli upload --directusUrl http://localhost:8055 --src ./dist --uploadFolder <your-folder-id> --directusToken <your-access-token>
 ```
 
-> **NOTE:** Make sure to replace `<your-folder-id>` with the folder id you created in the previous step and `<your-access-token>` with a Directus 
-> access token for a user with the permission to upload files. 
-> For more details, check out the [directus-serve-cli](https://github.com/nmerget/directus-serve/packages/directus-serve-cli/README.md).
+> **NOTE:** Make sure to replace `<your-folder-id>` with the folder id you created in the previous step and `<your-access-token>` with a Directus
+> access token for a user with the permission to upload files.
+> For more details, check out the [directus-serve-cli](https://github.com/nmerget/directus-serve/tree/main/packages/directus-serve-cli#directus-serve-cli).
 
 ## Configuration
 

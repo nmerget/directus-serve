@@ -45,7 +45,7 @@ jobs:
 
       - name: 🚢 Create and publish versions
         uses: changesets/action@v1
-        if: ${{ github.event.pull_request != null }}
+        if: ${{ github.event.pull_request == null }}
         with:
           commit: "chore: update versions"
           title: "chore: update versions"

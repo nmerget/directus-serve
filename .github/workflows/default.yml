@@ -14,7 +14,7 @@ env:
   CI: true
 
 jobs:
-  version:
+  all:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -43,13 +43,13 @@ jobs:
       - name: 👌 Validate
         run: pnpm ci:validate
 
-#      - name: 🚢 Create and publish versions
-#        uses: changesets/action@v1
-#        if: ${{ github.event.pull_request != null }}
-#        with:
-#          commit: "chore: update versions"
-#          title: "chore: update versions"
-#          publish: pnpm ci:publish
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: 🚢 Create and publish versions
+        uses: changesets/action@v1
+        if: ${{ github.event.pull_request == null }}
+        with:
+          commit: "chore: update versions"
+          title: "chore: update versions"
+          publish: pnpm ci:publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

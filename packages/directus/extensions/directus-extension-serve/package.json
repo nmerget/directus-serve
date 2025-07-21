@@ -2,7 +2,7 @@
   "name": "directus-extension-serve",
   "description": "Serve files or an app with directus by using filename or file paths.",
   "icon": "deployed_code",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nmerget/directus-serve.git"

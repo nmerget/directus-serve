@@ -1,6 +1,6 @@
 {
   "name": "directus-serve-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Manage directus files to serve them with directus-extension-serve.",
   "type": "module",
   "license": "MIT",

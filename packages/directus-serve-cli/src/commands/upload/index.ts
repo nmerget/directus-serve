@@ -30,6 +30,7 @@ export const upload = async (
     uploadFolder,
     directusUrl = "http://localhost:8055/",
     directusToken,
+    debug,
   } = uploadConfig;
 
   if (!src) {
@@ -37,12 +38,18 @@ export const upload = async (
     return false;
   }
 
+  const log = (...args: any[]) => {
+    if (debug) {
+      console.log(...args);
+    }
+  };
+
   let token = process.env.DIRECTUS_ACCESS_TOKEN ?? directusToken;
   if (!token) {
     const envFilePath = findPath(src, ".env");
     if (envFilePath) {
       config({ path: envFilePath });
-      console.log(`Loaded .env file from ${envFilePath}`);
+      log(`Loaded .env file from ${envFilePath}`);
     } else {
       console.warn("No .env file found in parent directories");
     }
@@ -56,11 +63,13 @@ export const upload = async (
   }
 
   try {
+    log("Creating Directus client with URL:", directusUrl);
     const client = createDirectus(directusUrl!)
       .with(staticToken(token))
       .with(rest());
     let version: string | undefined;
 
+    log("Search option version in package.json");
     const packageJsonPath = findPath(src, "package.json");
 
     // Read version from package.json
@@ -77,6 +86,7 @@ export const upload = async (
     });
 
     for (const filePath of files) {
+      log("Uploading file:", filePath);
       const file = new Blob([readFileSync(filePath)]);
       const fileName = path.basename(filePath);
       const relativeLocation = path.relative(src, filePath);

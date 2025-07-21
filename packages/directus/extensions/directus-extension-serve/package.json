@@ -31,11 +31,11 @@
 		"@directus/sdk": "^20.0.0",
 		"@types/compression": "^1.8.1",
 		"@types/express": "^5.0.3",
-		"@types/node": "^24.0.13",
+		"@types/node": "^24.0.15",
 		"express": "^5.1.0",
 		"typescript": "^5.8.3"
 	},
 	"dependencies": {
-		"compression": "^1.8.0"
+		"compression": "^1.8.1"
 	}
 }

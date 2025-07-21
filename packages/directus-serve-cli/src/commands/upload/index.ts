@@ -7,14 +7,16 @@ import { sync } from "glob";
 import fs from "node:fs";
 
 export const findPath = (startDir: string, find: string): string | null => {
+  let anchor = 5;
   let currentDir = startDir;
 
-  while (currentDir !== path.parse(currentDir).root) {
+  while (currentDir !== path.parse(currentDir).root && anchor > 0) {
     const envFilePath = path.join(currentDir, find);
     if (fs.existsSync(envFilePath)) {
       return envFilePath;
     }
     currentDir = path.dirname(currentDir);
+    anchor--;
   }
 
   return null;

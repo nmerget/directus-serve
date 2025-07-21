@@ -4,6 +4,14 @@
   "description": "Monorepo for directus-extension-serve.",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmerget/directus-serve.git"
+  },
+  "homepage": "https://github.com/nmerget/directus-serve",
+  "bugs": {
+    "url": "https://github.com/nmerget/directus-serve/issues"
+  },
   "scripts": {
     "changeset": "changeset",
     "ci:build": "pnpm -r build",

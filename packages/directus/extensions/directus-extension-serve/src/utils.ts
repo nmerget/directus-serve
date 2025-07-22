@@ -1,81 +1,52 @@
 export const INDEX_HTML = "index.html";
 
-export function parseDurationToMs(duration: string): number | boolean {
-  const regex = /^(\d+)([dhms])$/;
-  const match = duration.match(regex);
+/**
+ * Extracts query parameters from a given URL.
+ *
+ * @param url - The URL string to extract query parameters from.
+ * @returns An object containing key-value pairs of query parameters.
+ */
+export function extractQueryParams(url: string): Record<string, string> {
+  const queryParams: Record<string, string> = {};
 
-  if (!match) return false;
+  try {
+    const urlObj = new URL(url);
+    urlObj.searchParams.forEach((value, key) => {
+      queryParams[key] = value;
+    });
+  } catch (error) {
+    console.error("Invalid URL provided:", error);
+  }
 
-  const value = parseInt(match[1] ?? "", 10);
-  const unit = match[2];
+  return queryParams;
+}
 
-  switch (unit) {
-    case "d":
-      return value * 24 * 60 * 60 * 1000;
-    case "h":
-      return value * 60 * 60 * 1000;
-    case "m":
-      return value * 60 * 1000;
-    case "s":
-      return value * 1000;
-    default:
-      return false;
+/**
+ * Ensures a URL has a valid protocol prefix (http or https).
+ * Adds "http" for localhost and "https" for other hosts if no protocol is provided.
+ *
+ * @param url - The URL string to validate and modify if necessary.
+ * @returns The URL with the appropriate protocol prefix.
+ */
+export function ensureUrlProtocol(url: string): string {
+  try {
+    new URL(url);
+    return url; // URL already has a protocol
+  } catch {
+    // If URL constructor fails, assume no protocol is present
+    if (url.startsWith("localhost")) {
+      return `http://${url}`;
+    }
+    return `https://${url}`;
   }
 }
 
-export const sendFileToClient = async (
-  req: any,
-  res: any,
-  assetsService: any,
-  id: string,
-  env: any,
-) => {
-  const { stream, file, stat } = await assetsService.getAsset(
-    id,
-    undefined,
-    undefined,
-    true,
-  );
-
-  const filename = req.params["filename"] ?? file.filename_download;
-  res.attachment(filename);
-  res.setHeader("Content-Type", file.type);
-  res.setHeader("Accept-Ranges", "bytes");
-  res.setHeader("Content-Length", stat.size);
-  res.setHeader(
-    "Cache-Control",
-    `private, max-age=${parseDurationToMs(env.ASSETS_CACHE_TTL) ?? 2592000}`,
-  );
-  res.setHeader("Vary", "Origin, Cache-Control");
-
-  const unixTime = Date.parse(file.modified_on);
-
-  if (!Number.isNaN(unixTime)) {
-    const lastModifiedDate = new Date(unixTime);
-    res.setHeader("Last-Modified", lastModifiedDate.toUTCString());
-  }
-  res.setHeader("Content-Disposition", `inline; filename="${filename}"`);
-
-  (await stream())
-    .on("error", () => {
-      if (!res.headersSent) {
-        res.removeHeader("Content-Type");
-        res.removeHeader("Content-Disposition");
-        res.removeHeader("Cache-Control");
-
-        res.status(500).json({
-          errors: [
-            {
-              message: "An unexpected error occurred.",
-              extensions: {
-                code: "INTERNAL_SERVER_ERROR",
-              },
-            },
-          ],
-        });
-      } else {
-        res.end();
-      }
-    })
-    .pipe(res);
-};
+/**
+ * Extracts the last portion of a path, similar to `path.basename` in Node.js.
+ *
+ * @param path - The full path string.
+ * @returns The last portion of the path.
+ */
+export function getBasename(path: string): string {
+  return path.split(/[\\/]/).filter(Boolean).pop() || "";
+}

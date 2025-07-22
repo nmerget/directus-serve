@@ -1,8 +1,8 @@
 {
-  "name": "directus-extension-serve",
-  "description": "Serve files or an app with directus by using filename or file paths.",
+  "name": "dserve",
+  "description": "Serve files or an app with Directus by using filename or file paths.",
   "icon": "deployed_code",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nmerget/directus-serve.git"
@@ -26,7 +26,22 @@
     "type": "endpoint",
     "path": "dist/index.js",
     "source": "src/index.ts",
-    "host": "^10.10.0"
+    "host": "^10.10.0",
+    "sandbox": {
+      "enabled": true,
+      "requestedScopes": {
+        "log": {},
+        "request": {
+          "methods": [
+            "GET"
+          ],
+          "urls": [
+            "https://*",
+            "http://*"
+          ]
+        }
+      }
+    }
   },
   "scripts": {
     "build": "directus-extension build",
@@ -38,13 +53,8 @@
     "@directus/extensions": "^3.0.7",
     "@directus/extensions-sdk": "14.0.0",
     "@directus/sdk": "^20.0.0",
-    "@types/compression": "^1.8.1",
     "@types/express": "^5.0.3",
     "@types/node": "^24.0.13",
-    "express": "^5.1.0",
     "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "compression": "^1.8.1"
   }
 }

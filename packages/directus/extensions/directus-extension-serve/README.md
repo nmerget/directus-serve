@@ -4,9 +4,9 @@ Serve files or an app with directus by using filename or file paths.
 
 ## Install
 
-Search for "dserve" in the Marketplace of your app settings, navigate to the extension page, and click "Install Extension"
+Search for "dirserve" in the Marketplace of your app settings, navigate to the extension page, and click "Install Extension"
 
-Goto your Directus URL with the path `/dserve` like this `http://localhost:8055/dserve`.
+Goto your Directus URL with the path `/dirserve` like this `http://localhost:8055/dirserve`.
 You should see the response "Content not found".
 
 ## Configure serve folder
@@ -37,15 +37,15 @@ Next you need to set the field permissions. Select these fields:
 
 Goto your `/admin/files` like `http://localhost:8055/admin/files` and open the generated folder.
 Upload a file like `test.txt` with some content.
-Goto your Directus URL with the path `/dserve/test.txt` like this `http://localhost:8055/dserve/test.txt`.
+Goto your Directus URL with the path `/dirserve/test.txt` like this `http://localhost:8055/dirserve/test.txt`.
 
 You should see the content of your file.
 
 ## Deploy a Website or App
 
-You can upload a `index.html` file to serve a static website under your `/dserve` path.
+You can upload a `index.html` file to serve a static website under your `/dirserve` path.
 All static assets will be served from the same directus folder.
-By default, the `dserve` extension will fetch the first
+By default, the `dirserve` extension will fetch the first
 file with the path name you provide.
 
 For example, if you upload a file with the name `index.css`,
@@ -88,7 +88,7 @@ You can add the following optional fields to this collection:
 - `versionQueryParam`: `string`
   - The query parameter to use for the versioning of the files.
   - Default: `version`
-  - Use it like this `/dserve/test.txt?version=1.0.0`.
+  - Use it like this `/dirserve/test.txt?version=1.0.0`.
 - `contentNotFound`: `string`
   - Message to show when the requested file is not found.
   - Default: `Content not found`

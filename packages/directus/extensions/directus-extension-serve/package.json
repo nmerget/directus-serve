@@ -1,5 +1,5 @@
 {
-  "name": "dserve",
+  "name": "dirserve",
   "description": "Serve files or an app with Directus by using filename or file paths.",
   "icon": "deployed_code",
   "version": "0.0.0",

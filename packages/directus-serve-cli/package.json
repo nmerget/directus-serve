@@ -35,14 +35,14 @@
   },
   "dependencies": {
     "@directus/sdk": "^20.0.0",
-    "@dotenvx/dotenvx": "^1.48.2",
+    "@dotenvx/dotenvx": "^1.48.3",
     "commander": "^14.0.0",
     "cosmiconfig": "^9.0.0",
     "glob": "^11.0.3"
   },
   "devDependencies": {
     "@types/node": "^24.0.13",
-    "esbuild": "0.25.6",
+    "esbuild": "0.25.8",
     "esbuild-runner": "^2.2.2",
     "markdown-table": "^3.0.4",
     "npm-run-all2": "^8.0.4",

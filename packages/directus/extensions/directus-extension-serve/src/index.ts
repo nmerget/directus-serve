@@ -15,7 +15,12 @@ export default (router: SandboxEndpointRouter) => {
 
     try {
       const pathname = url.split("?")[0] ?? "/";
-      const filename = pathname === "/" ? INDEX_HTML : getBasename(pathname);
+      let filename = pathname === "/" ? INDEX_HTML : getBasename(pathname);
+
+      if (!filename.includes(".")) {
+        // If the filename does not include a dot, we assume it's an SPA route
+        filename = INDEX_HTML;
+      }
 
       const data = await readFile(host!, filename);
 
@@ -36,7 +41,11 @@ export default (router: SandboxEndpointRouter) => {
         const fileContent = await streamFileData(host!, foundFile.id);
 
         if (fileContent) {
-          return { status: 200, body: fileContent };
+          // We can't use custom headers in the sandbox environment, at the moment
+          return {
+            status: 200,
+            body: fileContent,
+          };
         }
       }
     } catch (e: any) {

@@ -54,7 +54,7 @@ To upload files to Directus, you need to create a directusToken with the correct
 First you should create a new policy in Directus that allows uploading files.
 You can do this by navigating to the Directus admin panel, going to the "Settings" section, and creating a new policy with the necessary permissions:
 
-![How to create a upload policy](docs/upload-policy.gif)
+![How to create a upload policy](https://raw.githubusercontent.com/nmerget/directus-serve/main/packages/directus-serve-cli/docs/upload-policy.gif)
 
 You can just use `All` permissions for the upload policy, but you need at least the following permissions:
 
@@ -69,4 +69,4 @@ You can just use `All` permissions for the upload policy, but you need at least 
 
 After creating the policy, you can create a new user, apply the policy to that user, and generate a new access token for that user.
 
-![How to add a user](docs/add_user.gif)
+![How to add a user](https://raw.githubusercontent.com/nmerget/directus-serve/main/packages/directus-serve-cli/docs/add_user.gif)

@@ -50,9 +50,9 @@
     "validate": "directus-extension validate"
   },
   "devDependencies": {
-    "@directus/extensions": "^3.0.7",
+    "@directus/extensions": "^3.0.8",
     "@directus/extensions-sdk": "14.0.0",
-    "@directus/sdk": "^20.0.0",
+    "@directus/sdk": "^20.0.1",
     "@types/express": "^5.0.3",
     "@types/node": "^24.1.0",
     "typescript": "^5.8.3"

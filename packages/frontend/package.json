@@ -11,7 +11,7 @@
     "upload": "npx directus-serve-cli upload --directusUrl http://localhost:8055 --src ./dist --uploadFolder 85b5d096-83af-4d60-901d-aac3fc0f6119"
   },
   "dependencies": {
-    "@directus/sdk": "^20.0.0",
+    "@directus/sdk": "^20.0.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.7.1"

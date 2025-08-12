@@ -34,7 +34,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@directus/sdk": "^20.0.1",
+    "@directus/sdk": "^20.0.2",
     "@dotenvx/dotenvx": "^1.48.4",
     "commander": "^14.0.0",
     "cosmiconfig": "^9.0.0",

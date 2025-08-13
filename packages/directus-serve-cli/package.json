@@ -34,7 +34,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@directus/sdk": "^20.0.1",
+    "@directus/sdk": "^20.0.2",
     "@dotenvx/dotenvx": "^1.48.4",
     "commander": "^14.0.0",
     "cosmiconfig": "^9.0.0",
@@ -42,11 +42,11 @@
   },
   "devDependencies": {
     "@types/node": "^24.2.1",
-    "esbuild": "0.25.8",
+    "esbuild": "0.25.9",
     "esbuild-runner": "^2.2.2",
     "markdown-table": "^3.0.4",
     "npm-run-all2": "^8.0.4",
-    "tsx": "^4.20.3",
+    "tsx": "^4.20.4",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   },

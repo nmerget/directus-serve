@@ -11,7 +11,7 @@
     "upload": "npx directus-serve-cli upload --directusUrl http://localhost:8055 --src ./dist --uploadFolder 85b5d096-83af-4d60-901d-aac3fc0f6119"
   },
   "dependencies": {
-    "@directus/sdk": "^20.0.1",
+    "@directus/sdk": "^20.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.8.0"
@@ -20,7 +20,7 @@
     "@dotenvx/dotenvx": "^1.48.4",
     "@eslint/js": "^9.33.0",
     "@types/node": "^24.2.1",
-    "@types/react": "^19.1.9",
+    "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
     "eslint": "^9.33.0",
@@ -29,8 +29,8 @@
     "glob": "^11.0.3",
     "globals": "^16.3.0",
     "typescript": "~5.9.2",
-    "typescript-eslint": "^8.39.0",
-    "vite": "^7.1.1",
+    "typescript-eslint": "^8.39.1",
+    "vite": "^7.1.2",
     "vite-plugin-singlefile": "^2.3.0"
   }
 }

@@ -54,7 +54,7 @@
     "@directus/extensions-sdk": "16.0.0",
     "@directus/sdk": "^20.0.2",
     "@types/express": "^5.0.3",
-    "@types/node": "^24.2.1",
+    "@types/node": "^24.3.0",
     "typescript": "^5.9.2"
   }
 }

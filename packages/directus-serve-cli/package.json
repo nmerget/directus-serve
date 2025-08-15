@@ -41,7 +41,7 @@
     "glob": "^11.0.3"
   },
   "devDependencies": {
-    "@types/node": "^24.2.1",
+    "@types/node": "^24.3.0",
     "esbuild": "0.25.9",
     "esbuild-runner": "^2.2.2",
     "markdown-table": "^3.0.4",

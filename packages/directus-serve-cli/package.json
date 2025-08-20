@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@directus/sdk": "^20.0.2",
-    "@dotenvx/dotenvx": "^1.48.4",
+    "@dotenvx/dotenvx": "^1.49.0",
     "commander": "^14.0.0",
     "cosmiconfig": "^9.0.0",
     "glob": "^11.0.3"

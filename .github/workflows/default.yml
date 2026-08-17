@@ -44,7 +44,7 @@ jobs:
         run: pnpm ci:validate
 
       - name: 🚢 Create and publish versions
-        uses: changesets/action@v1
+        uses: changesets/action@v2
         if: ${{ github.event.pull_request == null }}
         with:
           commit: "chore: update versions"
